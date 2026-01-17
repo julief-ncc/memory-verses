@@ -1,0 +1,132 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: #666766;
+    }
+    .mw-wrapper {
+      padding: 20px 22px;
+      border: 1px solid rgba(0,0,0,.12);
+      border-radius: 12px;
+    }
+    .mw-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .mw-month {
+      font-size: 13px;
+      font-weight: 500;
+      opacity: .75;
+      margin-bottom: 16px;
+    }
+    .mw-section-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .mw-verse {
+      font-size: 15px;
+      line-height: 1.45;
+    }
+    .mw-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mw-wrapper">
+    <div class="mw-title">This Month’s Memory Verses</div>
+    <div class="mw-month" id="mw-month-label"></div>
+
+    <div class="mw-grid">
+      <div>
+        <div class="mw-section-title">Threes / Fours–Fives (Jesus Storybook Bible)</div>
+        <div class="mw-verse" id="mw-younger"></div>
+      </div>
+
+      <div>
+        <div class="mw-section-title">K–5th (The Biggest Story)</div>
+        <div class="mw-verse" id="mw-older"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const VERSES = {
+        January: {
+          younger: "Abraham believed the Lord. <em>— Genesis 15:6</em>",
+          older: "I will put my law within them, and I will write it on their hearts. And I will be their God, and they shall be my people. <em>— Jeremiah 31:33</em>"
+        },
+        February: {
+          younger: "You shall have no other gods before me. <em>— Exodus 20:3</em>",
+          older: "The Lord gave, and the Lord has taken away; blessed be the name of the Lord. <em>— Job 1:21</em>"
+        },
+        March: {
+          younger: "Christ died for sins once for all, to bring you to God. <em>— 1 Peter 3:18</em>",
+          older: "The fear of the Lord is the beginning of wisdom, and the knowledge of the Holy One is insight. <em>— Proverbs 9:10</em>"
+        },
+        April: {
+          younger: "Salvation comes from the Lord. <em>— Jonah 2:9</em>",
+          older: "The Most High God is sovereign over all kingdoms on earth and sets over them anyone he wishes. <em>— Daniel 5:21b</em>"
+        },
+        May: {
+          younger: "By grace you have been saved through faith. <em>— Ephesians 2:8a</em>",
+          older: "Love bears all things, believes all things, hopes all things, endures all things. <em>— 1 Corinthians 13:7</em>"
+        },
+        June: {
+          younger: "Summer Challenge: The Lord’s Prayer (song by Erica)",
+          older: "Summer Challenge: The Lord’s Prayer"
+        },
+        July: {
+          younger: "Summer Challenge: Psalm 23",
+          older: "Summer Challenge: Psalm 23"
+        },
+        August: {
+          younger: "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life. <em>— John 3:16</em>",
+          older: "Ask, and it will be given to you; seek, and you will find; knock, and it will be opened to you. <em>— Matthew 7:7</em>"
+        },
+        September: {
+          younger: "In the beginning, God created the heavens and the earth. <em>— Genesis 1:1</em>",
+          older: "And he appointed twelve (whom he also named apostles) so that they might be with him and he might send them out to preach. <em>— Mark 3:14</em>"
+        },
+        October: {
+          younger: "Abraham believed the Lord. <em>— Genesis 15:6</em>",
+          older: "And he rose and rebuked the wind and said to the sea, “Peace! Be still!” And the wind ceased, and there was great calm. <em>— Mark 4:39</em>"
+        },
+        November: {
+          younger: "You shall have no other gods before me. <em>— Exodus 20:3</em>",
+          older: "If anyone would come after me, let him deny himself and take up his cross and follow me. <em>— Matthew 16:24</em>"
+        },
+        December: {
+          younger: "December verses coming soon.",
+          older: "December verses coming soon."
+        }
+      };
+
+      const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+      const now = new Date();
+      const month = months[now.getMonth()];
+      const data = VERSES[month] || {};
+
+      document.getElementById("mw-month-label").textContent = month;
+      document.getElementById("mw-younger").innerHTML = data.younger || "";
+      document.getElementById("mw-older").innerHTML = data.older || "";
+    })();
+  </script>
+</body>
+</html>
